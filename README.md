@@ -24,7 +24,9 @@ iOS SDK 11.
 
 ### Architecture 
 
-- TODO:
+    ├─ Search City Flow
+
+![Search Location Flow](https://github.com/buntylm/weather-explorer/blob/master/SearchLocationFlow.png)
 
 
 ### Project Structure
