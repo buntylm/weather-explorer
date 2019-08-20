@@ -9,7 +9,14 @@
 import UIKit
 
 class CityDetailViewController: UIViewController {
+    
     var cityDataModel: CityDataModel?
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var foregroundImage: UIImageView!
+    @IBOutlet weak var weatherInText: UILabel!
+    @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var tempreature: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
