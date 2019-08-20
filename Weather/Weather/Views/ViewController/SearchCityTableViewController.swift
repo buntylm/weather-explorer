@@ -17,16 +17,26 @@ class SearchCityTableViewController: UITableViewController {
         super.viewDidLoad()
         setupSearch()
         setupBinding()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refresh()
+    }
+    
+    func refresh() {
+        self.tableView.reloadData()
+    }
+    
+    func setupUI() {
         navigationItem.hidesSearchBarWhenScrolling = false
+        tableView.tableFooterView = UIView()
     }
     
     func setupBinding() {
         searchViewModel.results.bind {
-            self.tableView.reloadData()
+            self.refresh()
         }
         searchViewModel.willFinishSearch()
     }
@@ -59,7 +69,9 @@ extension SearchCityTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedModel = searchViewModel.modelFor(indexPath: indexPath)
-        CoreData.shared.insert(CityCoreDataModel.self, responseModel: selectedModel)
+        if CoreData.shared.needToSave(selectedModel.areaName) {
+            CoreData.shared.insert(CityCoreDataModel.self, responseModel: selectedModel)
+        }
         performSegue(withIdentifier: K.Storyboard.Search.showDetail, sender: selectedModel)
     }
 }

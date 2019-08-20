@@ -15,3 +15,10 @@ extension UITableViewCell   {
         }
     }
 }
+
+
+extension String    {
+    func value() -> String {
+        return self.isEmpty ? self : "\(self), "
+    }
+}

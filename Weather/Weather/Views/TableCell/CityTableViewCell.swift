@@ -10,6 +10,6 @@ import UIKit
 
 class CityTableViewCell: UITableViewCell {
     func setupCell(_ city: CityDataModel) {
-        textLabel?.text = city.areaName
+        textLabel?.text = city.displayable
     }
 }

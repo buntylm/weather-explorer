@@ -23,6 +23,10 @@ struct CityDataModel : PersistenanceProtocol {
     let latitude: String
     let population: String
     
+    var displayable : String    {
+        return "\(areaName.value())\(region.value())\(country)"
+    }
+    
     init(responseModel: CityResponseModel) {
         self.areaName = responseModel.areaName?.value() ?? K.defaultValue
         self.region = responseModel.region?.value() ?? K.defaultValue

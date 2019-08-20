@@ -13,5 +13,6 @@ class CityDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = cityDataModel?.areaName
     }
 }

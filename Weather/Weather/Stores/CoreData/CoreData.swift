@@ -35,7 +35,15 @@ class CoreData {
     }
     
     //MARK: Public functionality
-    public func fetch<T: NSManagedObject>(_ type: T.Type) -> [T]? {
+    public func needToSave(_ areaName: String) -> Bool  {
+        let predicate = NSPredicate(format: "areaName == %@", areaName)
+        guard let count = fetch(CityCoreDataModel.self, predicate: predicate)?.count, count == 0 else {
+            return false
+        }
+        return true
+    }
+    
+    public func fetch<T: NSManagedObject>(_ type: T.Type, predicate: NSPredicate? = nil) -> [T]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: String(describing: type))
         return try? context.fetch(fetchRequest) as? [T]
     }

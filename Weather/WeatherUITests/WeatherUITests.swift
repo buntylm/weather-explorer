@@ -28,16 +28,35 @@ class WeatherUITests: XCTestCase {
 
     func testSearchValidKeyword() {
         let app = XCUIApplication()
+        //Search Delhi
         app.searchFields["Search"].tap()
         app.searchFields["Search"].typeText("Delhi")
-        app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi"].tap()
+        
+        //Open detail (Save Result)
+        app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi, Ontario, Canada"].tap()
+        app.buttons["Back"].tap()
+
+        //Open detail again (Check duplicate)
+        app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi, Ontario, Canada"].tap()
+        app.buttons["Back"].tap()
+        
+        //Cancel will saved result
+        app.buttons["Cancel"].tap()
+        
+        //Tap on saved result list
+        app.tables.children(matching: .cell).element(boundBy: 0).staticTexts["Delhi, Ontario, Canada"].tap()
         app.buttons["Back"].tap()
     }
     
     func testTapSearchAndCancel() {
         let app = XCUIApplication()
+        
+        //search something wrong
         app.searchFields["Search"].tap()
         app.searchFields["Search"].typeText("ghjgjgjhghjghjghjg")
+        
+        //verify table row count.
+        XCTAssertEqual(app.tables.children(matching: .cell).count, 0)
         app.buttons["Cancel"].tap()
     }
 }

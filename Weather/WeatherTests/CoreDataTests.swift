@@ -25,9 +25,14 @@ class CoreDataTests: XCTestCase {
         XCTAssertEqual(CoreData.shared.fetch(CityCoreDataModel.self)?.count, 0)
         
         //insert mock data and check count
-        let mockServerResponse = CityResponseModel(areaName: [["value":"areaName"]], country: [["value":"country"]], region: [["n":""]], latitude: "10.0", longitude: "10.0", population: "0", weatherUrl: [["value":"weatherUrl"]])
+        let mockServerResponse = CityResponseModel(areaName: [["value":"areaName"]], country: [["value":"country"]],
+                                                   region: [["n":""]], latitude: "10.0", longitude: "10.0", population: "0",
+                                                   weatherUrl: [["value":"weatherUrl"]])
+        
         let mockModel = CityDataModel(responseModel: mockServerResponse)
         CoreData.shared.insert(CityCoreDataModel.self, responseModel: mockModel)
+        
+        // Verify saved object
         if let result = CoreData.shared.fetch(CityCoreDataModel.self), let first = result.first   {
             XCTAssertEqual(result.count, 1)
             let city = CityDataModel(coreDataModel: first)
@@ -43,6 +48,8 @@ class CoreDataTests: XCTestCase {
         let mockEmptyServerResponse = CityResponseModel()
         let mockEmptyModel = CityDataModel(responseModel: mockEmptyServerResponse)
         CoreData.shared.insert(CityCoreDataModel.self, responseModel: mockEmptyModel)
+        
+        // Verify saved object
         if let result = CoreData.shared.fetch(CityCoreDataModel.self), let first = result.first   {
             XCTAssertEqual(result.count, 1)
             let city = CityDataModel(coreDataModel: first)
