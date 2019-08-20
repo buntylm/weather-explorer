@@ -20,6 +20,10 @@
 		B5546F60230BC8E500D26926 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F5F230BC8E500D26926 /* Constant.swift */; };
 		B5546F62230BCA5600D26926 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F61230BCA5600D26926 /* URLBuilder.swift */; };
 		B5546F64230BCD2900D26926 /* NetworkDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F63230BCD2900D26926 /* NetworkDataProviderTests.swift */; };
+		B5546F68230BD24C00D26926 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F67230BD24C00D26926 /* SearchViewModel.swift */; };
+		B5546F6C230BD3F100D26926 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F6B230BD3F100D26926 /* CityModel.swift */; };
+		B5546F70230BD53500D26926 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F6F230BD53500D26926 /* SearchViewModelTests.swift */; };
+		B5546F72230BD79D00D26926 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F71230BD79D00D26926 /* Binding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		B5546F5F230BC8E500D26926 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B5546F61230BCA5600D26926 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		B5546F63230BCD2900D26926 /* NetworkDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProviderTests.swift; sourceTree = "<group>"; };
+		B5546F67230BD24C00D26926 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		B5546F6B230BD3F100D26926 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		B5546F6F230BD53500D26926 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		B5546F71230BD79D00D26926 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 				B5546F36230BC4C300D26926 /* WeatherTests.swift */,
 				B5546F38230BC4C300D26926 /* Info.plist */,
 				B5546F63230BCD2900D26926 /* NetworkDataProviderTests.swift */,
+				B5546F6F230BD53500D26926 /* SearchViewModelTests.swift */,
 			);
 			path = WeatherTests;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 		B5546F50230BC56200D26926 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B5546F67230BD24C00D26926 /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -178,6 +188,7 @@
 			children = (
 				B5546F5F230BC8E500D26926 /* Constant.swift */,
 				B5546F61230BCA5600D26926 /* URLBuilder.swift */,
+				B5546F71230BD79D00D26926 /* Binding.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				B5546F5D230BC85600D26926 /* WeatherAPIResponseModel.swift */,
+				B5546F6B230BD3F100D26926 /* CityModel.swift */,
 			);
 			path = "API Response Model";
 			sourceTree = "<group>";
@@ -354,13 +366,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5546F6C230BD3F100D26926 /* CityModel.swift in Sources */,
 				B5546F27230BC4BF00D26926 /* Weather.xcdatamodeld in Sources */,
 				B5546F62230BCA5600D26926 /* URLBuilder.swift in Sources */,
+				B5546F68230BD24C00D26926 /* SearchViewModel.swift in Sources */,
 				B5546F1F230BC4BF00D26926 /* AppDelegate.swift in Sources */,
 				B5546F57230BC67100D26926 /* SearchCityTableViewController.swift in Sources */,
 				B5546F5E230BC85600D26926 /* WeatherAPIResponseModel.swift in Sources */,
 				B5546F5B230BC7E100D26926 /* NetworkDataProvider.swift in Sources */,
 				B5546F60230BC8E500D26926 /* Constant.swift in Sources */,
+				B5546F72230BD79D00D26926 /* Binding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +385,7 @@
 			files = (
 				B5546F37230BC4C300D26926 /* WeatherTests.swift in Sources */,
 				B5546F64230BCD2900D26926 /* NetworkDataProviderTests.swift in Sources */,
+				B5546F70230BD53500D26926 /* SearchViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

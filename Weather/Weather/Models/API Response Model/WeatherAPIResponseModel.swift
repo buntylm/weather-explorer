@@ -28,3 +28,9 @@ struct CityResponseModel : Codable {
     var population: String?
     var weatherUrl: APIResponseValue?
 }
+
+extension APIResponseValue  {
+    func value() -> String {
+        return self.first?[K.API.Search.valueKey] ?? K.defaultValue
+    }
+}
