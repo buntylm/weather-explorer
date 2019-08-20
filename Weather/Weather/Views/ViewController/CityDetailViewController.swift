@@ -9,6 +9,8 @@
 import UIKit
 
 class CityDetailViewController: UIViewController {
+    var cityDataModel: CityDataModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

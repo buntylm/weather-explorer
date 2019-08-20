@@ -12,10 +12,18 @@ struct K {
     static let defaultValue = ""
     
     struct API {
-        
         struct Search {
-            
             static let valueKey = "value"
         }
+    }
+    
+    struct Storyboard {
+        struct Search {
+            static let showDetail = "detail"
+        }
+    }
+    
+    struct UI {
+        static let searchPlaceholder = "Search"
     }
 }

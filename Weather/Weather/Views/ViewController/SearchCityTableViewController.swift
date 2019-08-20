@@ -35,7 +35,7 @@ class SearchCityTableViewController: UITableViewController {
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = K.UI.searchPlaceholder
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -58,8 +58,9 @@ extension SearchCityTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CoreData.shared.insert(CityCoreDataModel.self, responseModel: searchViewModel.modelFor(indexPath: indexPath))
-        performSegue(withIdentifier: String(describing: CityDetailViewController.self), sender: nil)
+        let selectedModel = searchViewModel.modelFor(indexPath: indexPath)
+        CoreData.shared.insert(CityCoreDataModel.self, responseModel: selectedModel)
+        performSegue(withIdentifier: K.Storyboard.Search.showDetail, sender: selectedModel)
     }
 }
 
@@ -81,3 +82,11 @@ extension SearchCityTableViewController: UISearchResultsUpdating, UISearchContro
     }
 }
 
+//MARK: Navigation
+extension SearchCityTableViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sender = sender as? CityDataModel, let destin = segue.destination as? CityDetailViewController {
+            destin.cityDataModel = sender
+        }
+    }
+}

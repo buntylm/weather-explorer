@@ -181,6 +181,7 @@
 		B5546F51230BC58000D26926 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B5546F6B230BD3F100D26926 /* CityDataModel.swift */,
 				B5546F5C230BC83000D26926 /* API Response Model */,
 			);
 			path = Models;
@@ -244,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				B5546F5D230BC85600D26926 /* WeatherAPIResponseModel.swift */,
-				B5546F6B230BD3F100D26926 /* CityDataModel.swift */,
 			);
 			path = "API Response Model";
 			sourceTree = "<group>";
