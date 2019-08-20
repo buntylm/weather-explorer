@@ -30,6 +30,23 @@ extension URLBuilder {
             ]
         )
     }
+    
+    static func detail(for long: String, lat: String) -> URLBuilder? {
+        
+        guard !long.isEmpty || !lat.isEmpty else {
+            return nil
+        }
+        
+        return URLBuilder(
+            path: "/premium/v1/weather.ashx",
+            queryItems: [
+                URLQueryItem(name: "q", value: "\(lat),\(long)"),
+                URLQueryItem(name: "format", value: "json"),
+                URLQueryItem(name: "key", value: "e4e04472fe8748a1a2685025191408"),
+                URLQueryItem(name: "num_of_days", value: "1")
+            ]
+        )
+    }
 }
 
 extension URLBuilder {

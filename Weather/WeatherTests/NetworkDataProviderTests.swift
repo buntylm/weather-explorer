@@ -45,6 +45,36 @@ class NetworkDataProviderTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
+    func testDetailAPIValidQuery() {
+        let expectation = self.expectation(description: "Networking")
+        NetworkDataProvider().detail(for: "1.352083", long: "103.819839") { (response) in
+            expectation.fulfill()
+            XCTAssertNotNil(response?.data?.current_condition?.first?.humidity)
+            XCTAssertNotNil(response?.data?.current_condition?.first?.temp_C)
+            XCTAssertNotNil(response?.data?.current_condition?.first?.weatherDesc.first?.value)
+            XCTAssertNotNil(response?.data?.current_condition?.first?.weatherIconUrl.first?.value)
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testDetailAPIInValidQuery() {
+        let expectation = self.expectation(description: "Networking")
+        NetworkDataProvider().detail(for: "", long: "") { (response) in
+            expectation.fulfill()
+            XCTAssertNil(response)
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testDetailAPINoQuery() {
+        let expectation = self.expectation(description: "Networking")
+        NetworkDataProvider().detail(for: "90909", long: "90909") { (response) in
+            expectation.fulfill()
+            XCTAssertNil(response)
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

@@ -11,7 +11,7 @@ import CoreData
 
 typealias APIResponseValue = [[String: String]]
 
-public struct WeatherAPIResponseModel : Codable {
+public struct SearchAPIResponseModel : Codable {
     var search_api: SearchResponseModel?
 }
 

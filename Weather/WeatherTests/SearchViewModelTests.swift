@@ -62,14 +62,18 @@ class SearchViewModelTests: XCTestCase {
 }
 
 class NetworkDataProviderMock: DataProviderProtocol {
-    let mockObject = WeatherAPIResponseModel(search_api: SearchResponseModel(result:
+    func detail(for lat: String, long: String, handler: @escaping DetailCompletion) {
+        
+    }
+    
+    let mockObject = SearchAPIResponseModel(search_api: SearchResponseModel(result:
     [CityResponseModel(
         areaName: [["value":"areaName"]], country: [["value":"country"]], region: [["n":""]],
         latitude: "10.0", longitude: "10.0", population: "0", weatherUrl: [["value":"weatherUrl"]]),
      CityResponseModel(areaName: nil, country: nil, region: nil,
                        latitude: nil, longitude: nil, population: nil, weatherUrl: nil)]))
     
-    func search(for string: String, handler: @escaping Completion) {
+    func search(for string: String, handler: @escaping SearchCompletion) {
         if string.isEmpty {
             handler(nil)
         } else {
