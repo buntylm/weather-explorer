@@ -28,6 +28,7 @@
 		B5546F78230BDD4100D26926 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F77230BDD4100D26926 /* CityTableViewCell.swift */; };
 		B5546F7A230BE62700D26926 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F79230BE62700D26926 /* CoreData.swift */; };
 		B5546F7C230BEE9200D26926 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F7B230BEE9200D26926 /* CoreDataTests.swift */; };
+		B5546F7E230BF73B00D26926 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5546F7D230BF73B00D26926 /* CityDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		B5546F77230BDD4100D26926 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		B5546F79230BE62700D26926 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		B5546F7B230BEE9200D26926 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		B5546F7D230BF73B00D26926 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				B5546F56230BC67100D26926 /* SearchCityTableViewController.swift */,
+				B5546F7D230BF73B00D26926 /* CityDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				B5546F78230BDD4100D26926 /* CityTableViewCell.swift in Sources */,
 				B5546F57230BC67100D26926 /* SearchCityTableViewController.swift in Sources */,
 				B5546F5E230BC85600D26926 /* WeatherAPIResponseModel.swift in Sources */,
+				B5546F7E230BF73B00D26926 /* CityDetailViewController.swift in Sources */,
 				B5546F5B230BC7E100D26926 /* NetworkDataProvider.swift in Sources */,
 				B5546F60230BC8E500D26926 /* Constant.swift in Sources */,
 				B5546F72230BD79D00D26926 /* Binding.swift in Sources */,

@@ -31,7 +31,7 @@ class WeatherUITests: XCTestCase {
         app.searchFields["Search"].tap()
         app.searchFields["Search"].typeText("Delhi")
         app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi"].tap()
-        app.buttons["Cancel"].tap()
+        app.buttons["Back"].tap()
     }
     
     func testTapSearchAndCancel() {

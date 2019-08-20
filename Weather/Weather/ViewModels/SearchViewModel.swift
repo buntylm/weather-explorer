@@ -14,10 +14,8 @@ protocol SearchViewModelProtocol {
 
 struct SearchViewModel : SearchViewModelProtocol {
     //MARK: Properties
-    //in
     private var dataProvider : DataProviderProtocol!
-    //out
-    var results: Dynamic<[CityDataModel]> = .init([])
+    public var results: Dynamic<[CityDataModel]> = .init([])
 
     //MARK: LifeCycle
     init(dataProvider: DataProviderProtocol) {
@@ -40,6 +38,19 @@ struct SearchViewModel : SearchViewModelProtocol {
         }
     }
     
+    //MARK: Private
+    private func savedCities() -> [CityDataModel] {
+        var results: [CityDataModel] = []
+        guard let coreDataResults = CoreData.shared.fetch(CityCoreDataModel.self), !coreDataResults.isEmpty else {
+            return results
+        }
+        for coreDataModel in coreDataResults {
+            let model = CityDataModel(coreDataModel: coreDataModel)
+            results.append(model)
+        }
+        return results
+    }
+    
     //MARK: Presentation Logic
     var numberOfRows: Int {
         return results.value.count
@@ -50,7 +61,7 @@ struct SearchViewModel : SearchViewModelProtocol {
     }
     
     func willFinishSearch() {
-        self.results.value.removeAll()
+        self.results.value = savedCities()
     }
     
     func willStartSearch() {

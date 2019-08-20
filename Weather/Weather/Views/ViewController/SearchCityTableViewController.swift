@@ -28,6 +28,7 @@ class SearchCityTableViewController: UITableViewController {
         searchViewModel.results.bind {
             self.tableView.reloadData()
         }
+        searchViewModel.willFinishSearch()
     }
     
     func setupSearch() {
@@ -55,12 +56,20 @@ extension SearchCityTableViewController {
         cell.setupCell(searchViewModel.modelFor(indexPath: indexPath))
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CoreData.shared.insert(CityCoreDataModel.self, responseModel: searchViewModel.modelFor(indexPath: indexPath))
+        performSegue(withIdentifier: String(describing: CityDetailViewController.self), sender: nil)
+    }
 }
 
 // MARK: - UISearchResultsUpdating, UISearchControllerDelegate
 extension SearchCityTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        searchViewModel.searchFor(searchController.searchBar.text)
+        guard let string = searchController.searchBar.text, !string.isEmpty else {
+            return
+        }
+        searchViewModel.searchFor(string)
     }
     
     func willDismissSearchController(_ searchController: UISearchController) {
