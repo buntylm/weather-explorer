@@ -20,7 +20,7 @@ class NetworkDataProviderTests: XCTestCase {
     
     func testSearchAPIValidQuery() {
         let expectation = self.expectation(description: "Networking")
-         NetworkDataProvider.shared.search(for: "Delhi") { (response) in
+         NetworkDataProvider().search(for: "Delhi") { (response) in
             expectation.fulfill()
             XCTAssertNotEqual(response?.search_api?.result.count, 0)
         }
@@ -29,16 +29,16 @@ class NetworkDataProviderTests: XCTestCase {
     
     func testSearchAPIInvalidQuery() {
         let expectation = self.expectation(description: "Networking")
-        NetworkDataProvider.shared.search(for: "kljladjsflkc  jsldfj") { (response) in
+        NetworkDataProvider().search(for: "kljladjsflkc  jsldfj") { (response) in
             expectation.fulfill()
-            XCTAssertEqual(response?.search_api?.result.count, 2)
+            XCTAssertNil(response)
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testSearchAPINoQuery() {
         let expectation = self.expectation(description: "Networking")
-        NetworkDataProvider.shared.search(for: "") { (response) in
+        NetworkDataProvider().search(for: "") { (response) in
             expectation.fulfill()
             XCTAssertNil(response)
         }

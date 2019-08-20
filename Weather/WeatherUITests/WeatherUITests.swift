@@ -26,9 +26,18 @@ class WeatherUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSearchValidKeyword() {
+        let app = XCUIApplication()
+        app.searchFields["Search"].tap()
+        app.searchFields["Search"].typeText("Delhi")
+        app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi"].tap()
+        app.buttons["Cancel"].tap()
     }
-
+    
+    func testTapSearchAndCancel() {
+        let app = XCUIApplication()
+        app.searchFields["Search"].tap()
+        app.searchFields["Search"].typeText("ghjgjgjhghjghjghjg")
+        app.buttons["Cancel"].tap()
+    }
 }

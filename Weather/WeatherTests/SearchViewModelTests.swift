@@ -42,6 +42,16 @@ class SearchViewModelTests: XCTestCase {
         XCTAssertEqual(searchViewModel.results.value.count, 0)
     }
     
+    func testSearchWithNilString() {
+        let expectation = self.expectation(description: "Search")
+        searchViewModel.searchFor(nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 2.0, handler: nil)
+        XCTAssertEqual(searchViewModel.results.value.count, 0)
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

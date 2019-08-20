@@ -15,11 +15,7 @@ protocol DataProviderProtocol {
 }
 
 class NetworkDataProvider: DataProviderProtocol {
-    
-    public static let shared = NetworkDataProvider()
-    
-    private init() { }
-    
+        
     func search(for string:String, handler: @escaping Completion) {
         
         guard let url = URLBuilder.search(matching: string)?.url else {

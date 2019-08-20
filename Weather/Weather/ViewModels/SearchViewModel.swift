@@ -25,7 +25,11 @@ struct SearchViewModel : SearchViewModelProtocol {
     }
     
     //MARK: Public
-    public func searchFor(_ string: String) {
+    public func searchFor(_ string: String?) {
+        guard let string = string   else {
+            return
+        }
+        
         dataProvider.search(for: string) { (response) in
             var results: [CityDataModel] = []
             for responseModel in response?.search_api?.result ?? [] {
@@ -34,5 +38,22 @@ struct SearchViewModel : SearchViewModelProtocol {
             }
             self.results.value = results
         }
+    }
+    
+    //MARK: Presentation Logic
+    var numberOfRows: Int {
+        return results.value.count
+    }
+    
+    func modelFor(indexPath: IndexPath) -> CityDataModel {
+        return results.value[indexPath.row]
+    }
+    
+    func willFinishSearch() {
+        self.results.value.removeAll()
+    }
+    
+    func willStartSearch() {
+        self.results.value.removeAll()
     }
 }
