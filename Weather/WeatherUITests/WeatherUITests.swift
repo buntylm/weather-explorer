@@ -34,18 +34,18 @@ class WeatherUITests: XCTestCase {
         
         //Open detail (Save Result)
         app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi, Ontario, Canada"].tap()
-        app.buttons["Back"].tap()
+        app.buttons["Weather Explorer"].tap()
 
         //Open detail again (Check duplicate)
         app.tables.children(matching: .cell).element(boundBy: 1).staticTexts["Delhi, Ontario, Canada"].tap()
-        app.buttons["Back"].tap()
+        app.buttons["Weather Explorer"].tap()
         
         //Cancel will saved result
         app.buttons["Cancel"].tap()
         
         //Tap on saved result list
         app.tables.children(matching: .cell).element(boundBy: 0).staticTexts["Delhi, Ontario, Canada"].tap()
-        app.buttons["Back"].tap()
+        app.buttons["Weather Explorer"].tap()
     }
     
     func testTapSearchAndCancel() {

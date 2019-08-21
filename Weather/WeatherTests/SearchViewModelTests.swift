@@ -15,7 +15,7 @@ class SearchViewModelTests: XCTestCase {
     var searchViewModel: SearchViewModel!
 
     override func setUp() {
-        searchViewModel = SearchViewModel(dataProvider: NetworkDataProviderMock())
+        searchViewModel = SearchViewModel(dataProvider: SearchNetworkDataProviderMock())
     }
     
     override func tearDown() {
@@ -61,7 +61,7 @@ class SearchViewModelTests: XCTestCase {
     }
 }
 
-class NetworkDataProviderMock: DataProviderProtocol {
+class SearchNetworkDataProviderMock: DataProviderProtocol {
     func detail(for lat: String, long: String, handler: @escaping DetailCompletion) {
         
     }

@@ -22,3 +22,15 @@ extension String    {
         return self.isEmpty ? self : "\(self), "
     }
 }
+
+typealias ImageDownloadHandler = (UIImage?) -> Void
+
+extension UIViewController {
+    func fetchImage(from urlString: String, handler: @escaping ImageDownloadHandler) {
+        DispatchQueue.global().async {
+            if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
+                handler(UIImage(data: data))
+            }
+        }
+    }
+}
