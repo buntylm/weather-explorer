@@ -30,10 +30,9 @@ struct SearchViewModel : SearchViewModelProtocol {
         
         dataProvider.search(for: string) { (response) in
             var results: [CityDataModel] = []
-            for responseModel in response?.search_api?.result ?? [] {
-                let model = CityDataModel(responseModel: responseModel)
-                results.append(model)
-            }
+            response?.search_api?.result.forEach({ (responseModel) in
+                results.append(CityDataModel(responseModel: responseModel))
+            })
             self.results.value = results
         }
     }

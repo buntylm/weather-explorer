@@ -27,7 +27,7 @@ class CityDetailViewController: UIViewController {
         fetchData()
     }
     
-    //MARK: Binding
+    //MARK: Binding and data-fetching 
     private func setupBinding() {
         detailViewModel.apiRequestFinised.bind { [weak self] in
             self?.stopLoadingIndicators()

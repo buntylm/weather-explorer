@@ -10,9 +10,10 @@ import UIKit
 
 class SearchCityTableViewController: UITableViewController {
     
-    var searchViewModel = SearchViewModel(dataProvider: NetworkDataProvider())
-    let searchController = UISearchController(searchResultsController: nil)
+    private var searchViewModel = SearchViewModel(dataProvider: NetworkDataProvider())
+    private let searchController = UISearchController(searchResultsController: nil)
     
+    //MARK: UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearch()
@@ -25,23 +26,24 @@ class SearchCityTableViewController: UITableViewController {
         refresh()
     }
     
-    func refresh() {
+    //MARK: Private functionality
+    private func refresh() {
         self.tableView.reloadData()
     }
     
-    func setupUI() {
+    private func setupUI() {
         navigationItem.hidesSearchBarWhenScrolling = false
         tableView.tableFooterView = UIView()
     }
     
-    func setupBinding() {
+    private func setupBinding() {
         searchViewModel.results.bind {
             self.refresh()
         }
         searchViewModel.willFinishSearch()
     }
     
-    func setupSearch() {
+    private func setupSearch() {
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false

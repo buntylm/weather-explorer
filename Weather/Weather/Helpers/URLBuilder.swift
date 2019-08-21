@@ -21,12 +21,12 @@ extension URLBuilder {
         }
         
         return URLBuilder(
-            path: "/premium/v1/search.ashx",
+            path: K.API.URLPattern.search,
             queryItems: [
-                URLQueryItem(name: "query", value: query),
-                URLQueryItem(name: "format", value: "json"),
-                URLQueryItem(name: "key", value: "e4e04472fe8748a1a2685025191408"),
-                URLQueryItem(name: "num_of_results", value: "10")
+                URLQueryItem(name: K.API.Param.Key.query, value: query),
+                URLQueryItem(name: K.API.Param.Key.format, value: K.API.Param.Value.json),
+                URLQueryItem(name: K.API.Param.Key.key, value: K.API.Param.Value.apiKey),
+                URLQueryItem(name: K.API.Param.Key.numberOfResults, value: K.API.Param.Value.numberOfResultsInSearch)
             ]
         )
     }
@@ -38,12 +38,12 @@ extension URLBuilder {
         }
         
         return URLBuilder(
-            path: "/premium/v1/weather.ashx",
+            path: K.API.URLPattern.detail,
             queryItems: [
-                URLQueryItem(name: "q", value: "\(lat),\(long)"),
-                URLQueryItem(name: "format", value: "json"),
-                URLQueryItem(name: "key", value: "e4e04472fe8748a1a2685025191408"),
-                URLQueryItem(name: "num_of_days", value: "1")
+                URLQueryItem(name: K.API.Param.Key.q, value: "\(lat),\(long)"),
+                URLQueryItem(name: K.API.Param.Key.format, value: K.API.Param.Value.json),
+                URLQueryItem(name: K.API.Param.Key.key, value: K.API.Param.Value.apiKey),
+                URLQueryItem(name: K.API.Param.Key.numberOfResults, value: K.API.Param.Value.numberOfDaysInDetail)
             ]
         )
     }
@@ -52,8 +52,8 @@ extension URLBuilder {
 extension URLBuilder {
     var url: URL? {
         var components = URLComponents()
-        components.scheme   = "https"
-        components.host     = "api.worldweatheronline.com"
+        components.scheme   = K.API.scheme
+        components.host     = K.API.host
         components.path     = path
         components.queryItems = queryItems
         return components.url
