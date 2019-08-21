@@ -1,6 +1,7 @@
 ## weather-explorer
  
 iOS App to search the weather by entering the name of area-name/region/country.
+> Uses MVVM architecture with reactive approach (no use of external libraries).
 
 ### Getting Started
 
