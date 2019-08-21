@@ -41,11 +41,11 @@ struct DetailViewModel : DetailViewModelProtocol {
             self.apiRequestFinised.value = true
 
             if let humidity = response?.data?.current_condition?.first?.humidity {
-                self.humidity.value = humidity
+                self.humidity.value = "\(humidity)%"
             }
             
             if let temperature = response?.data?.current_condition?.first?.temp_C  {
-                self.temperature.value = temperature
+                self.temperature.value = "\(temperature)°C"
             }
             
             if let weatherDesc = response?.data?.current_condition?.first?.weatherDesc.first?.value {

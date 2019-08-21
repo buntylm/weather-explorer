@@ -28,10 +28,10 @@ class DetailViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 2.0, handler: nil)
-        XCTAssertEqual(detailViewModel.humidity.value, "20")
+        XCTAssertEqual(detailViewModel.humidity.value, "20%")
         XCTAssertEqual(detailViewModel.weatherDesc.value, "desc")
         XCTAssertEqual(detailViewModel.weatherIconUrl.value, "weather-url")
-        XCTAssertEqual(detailViewModel.temperature.value, "10")
+        XCTAssertEqual(detailViewModel.temperature.value, "10°C")
     }
     
     func testInValidLongLat() {
