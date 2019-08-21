@@ -71,7 +71,7 @@ extension SearchCityTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedModel = searchViewModel.modelFor(indexPath: indexPath)
-        if CoreData.shared.needToSave(selectedModel.areaName) {
+        if CoreData.shared.needToSave(selectedModel.areaName, country: selectedModel.country) {
             CoreData.shared.insert(CityCoreDataModel.self, responseModel: selectedModel)
         }
         performSegue(withIdentifier: K.Storyboard.Search.showDetail, sender: selectedModel)

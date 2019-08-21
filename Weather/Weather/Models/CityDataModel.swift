@@ -53,6 +53,7 @@ struct CityDataModel : PersistenanceProtocol {
         mObject.longitude = self.longitude
         mObject.latitude = self.latitude
         mObject.population = self.population
+        mObject.createdDate = Date()
         return mObject
     }
 }

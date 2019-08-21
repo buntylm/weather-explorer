@@ -3,6 +3,7 @@
     <entity name="CityCoreDataModel" representedClassName="CityCoreDataModel" syncable="YES" codeGenerationType="class">
         <attribute name="areaName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="population" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,6 +11,6 @@
         <attribute name="weatherUrl" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CityCoreDataModel" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="CityCoreDataModel" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

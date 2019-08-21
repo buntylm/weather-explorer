@@ -35,8 +35,8 @@ class CoreData {
     }
     
     //MARK: Public functionality
-    public func needToSave(_ areaName: String) -> Bool  {
-        let predicate = NSPredicate(format: "areaName == %@", areaName)
+    public func needToSave(_ areaName: String, country: String) -> Bool  {
+        let predicate = NSPredicate(format: "areaName == %@ && country == %@", areaName, country)
         guard let count = fetch(CityCoreDataModel.self, predicate: predicate)?.count, count == 0 else {
             return false
         }
@@ -45,6 +45,9 @@ class CoreData {
     
     public func fetch<T: NSManagedObject>(_ type: T.Type, predicate: NSPredicate? = nil) -> [T]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: String(describing: type))
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = 10
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdDate", ascending: false)]
         return try? context.fetch(fetchRequest) as? [T]
     }
     
