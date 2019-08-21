@@ -38,7 +38,21 @@ iOS SDK 11.
     ├─ Stores
     ├─ Helpers
     ├─ Resources
-        
+    
+### What's next
+> Few things that we can consider.
+
+- Image caching.
+- Increase testing scope by giving different input values.
+- HTTP request throttling.
+- Intergate logger to print the logs.
+- Localisation and images assets handling using Swift gen.xml
+- Internet Connection Handling.
+
+### Source code coverage
+![Code coverage](https://github.com/buntylm/weather-explorer/blob/master/code-coverage.png)
+
+
 ### Author
 Bunty Madan – [@buntylm](https://stackoverflow.com/buntylm) – https://bmnotes.com
 
