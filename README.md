@@ -54,7 +54,7 @@ iOS SDK 11.
 
 
 ### Author
-Bunty Madan – [@buntylm](https://stackoverflow.com/buntylm) – https://bmnotes.com
+Bunty Madan – [@buntylm](https://stackoverflow.com/users/1603380/buntylm) – https://bmnotes.com
 
 ### License
 
