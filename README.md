@@ -48,6 +48,7 @@ iOS SDK 11.
 - Intergate logger to print the logs.
 - Localisation and images assets handling using Swift gen.xml
 - Internet Connection Handling.
+- etc.
 
 ### Source code coverage
 ![Code coverage](https://github.com/buntylm/weather-explorer/blob/master/code-coverage.png)
